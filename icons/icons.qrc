@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>QmlBackNetWork/44x44@2/pause.png</file>
+        <file>QmlBackNetWork/44x44@2/stop.png</file>
+        <file>QmlBackNetWork/44x44@2/clear.png</file>
+        <file>QmlBackNetWork/44x44@2/start.png</file>
+        <file>QmlBackNetWork/44x44/clear.png</file>
+        <file>QmlBackNetWork/44x44/pause.png</file>
+        <file>QmlBackNetWork/44x44/start.png</file>
+        <file>QmlBackNetWork/44x44/stop.png</file>
+        <file>QmlBackNetWork/index.theme</file>
+    </qresource>
+</RCC>

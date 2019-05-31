@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>FeatureButton.qml</file>
+        <file>CustomGlow.qml</file>
+        <file>GlowingLabel.qml</file>
+        <file>Customtreeview.qml</file>
+    </qresource>
+</RCC>

@@ -227,10 +227,13 @@ ApplicationWindow {
                           anchors.fill: parent
 
                           Page {
-                              title: qsTr("Nic")
+                              title: qsTr("Nic")                           
 
-                              Customtreeview{
+                              TreeView{
                                   id:nic_treeview
+                                  anchors.left: parent.left
+                                  anchors.top: parent.top
+                                  anchors.right: parent.right
 
                                   TableViewColumn{
                                       title: "Name"
@@ -243,6 +246,21 @@ ApplicationWindow {
                                   TableViewColumn{
                                       title: "Description"
                                       role: "description"
+                                  }
+                                  Component.onCompleted: {
+                                      model = mytreeview
+                                  }
+
+//                                  model: mytreeview
+                                  itemDelegate: Item {
+                                      Text {
+                                          color: "red"
+                                          elide: styleData.elidemode
+                                          text: styleData.value
+                                      }
+                                  }
+                                  onClicked: {
+                                      emit:nic_treeview.expand(index)
                                   }
                               }
 

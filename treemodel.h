@@ -29,7 +29,7 @@ public:
 
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
     void setupModelData(TreeData *parent);
-
+    QHash<int,QByteArray> roleNames() const override;
 
 private:
 //    QList<treedata> treeviewdata;

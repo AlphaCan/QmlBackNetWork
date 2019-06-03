@@ -7,11 +7,7 @@ TreeView {
     id: view
     anchors.left: parent.left
     anchors.right: parent.right
-//    anchors.margins: 2 * 12 + row.height
-    model: mytreemodel
-    selection: ItemSelectionModel{
-        model: mytreemodel
-    }
+    model:mytreeview
 
 }
 

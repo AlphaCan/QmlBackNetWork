@@ -19,6 +19,8 @@ public:
     QVariant data(int column) const;
     int row() const;
     TreeData *parentItem();
+    void deleteAllChild();
+    void setParent(TreeData *parent);
 
 private:
     QList<TreeData*> m_childItems;

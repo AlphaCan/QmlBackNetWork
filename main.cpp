@@ -4,7 +4,6 @@
 #include <QSettings>
 #include <QQuickStyle>
 #include <QIcon>
-#include "tableviewmodel.h"
 #include "treemodel.h"
 
 int main(int argc, char *argv[])
@@ -30,7 +29,9 @@ int main(int argc, char *argv[])
 //    engine.rootContext()->setContextProperty("tabviewmodel",&model);
 
     treemodel model;
-    engine.rootContext()->setContextProperty("mytreemodel",&model);
+    engine.rootContext()->setContextProperty("mytreeview",&model);
+
+
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

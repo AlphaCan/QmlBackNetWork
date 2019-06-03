@@ -21,6 +21,7 @@ TreeData::~TreeData()
 //! [2]
 void TreeData::appendChild(TreeData *item)
 {
+    item->setParent(this);
     m_childItems.append(item);
 }
 //! [2]
@@ -69,6 +70,27 @@ int TreeData::row() const
     return 0;
 }
 //! [8]
+
+
+void TreeData::deleteAllChild(){
+    for (int index = 0;index < m_childItems.size();index++) {
+        m_childItems[index]->deleteAllChild();
+        qDeleteAll(m_childItems);
+        m_childItems.clear();
+    }
+}
+
+
+void TreeData::setParent(TreeData *parent){
+    m_parentItem = parent;
+}
+
+
+
+
+
+
+
 
 
 

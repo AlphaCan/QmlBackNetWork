@@ -1,4 +1,4 @@
-QT += quick quickcontrols2 network core
+QT += quick quickcontrols2 network core gui
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -15,7 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
     nic.cpp \
-    tableviewmodel.cpp \
+#    tableviewmodel.cpp \
     treedata.cpp \
     treemodel.cpp
 
@@ -38,12 +38,12 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES += \
-    Customtreeview.qml
+#DISTFILES += \
+#    Customtreeview.qml
 
 HEADERS += \
     nic.h \
-    tableviewmodel.h \
+#    tableviewmodel.h \
     treedata.h \
     treemodel.h
 

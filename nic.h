@@ -2,7 +2,8 @@
 #define NIC_H
 
 #include <QObject>
-#include "pcap.h"
+#include <QNetworkInterface>
+#include <QHostInfo>
 
 
 class NIC : public QObject
@@ -10,15 +11,19 @@ class NIC : public QObject
     Q_OBJECT
 public:
     explicit NIC(QObject *parent = nullptr);
-    Q_INVOKABLE int Find_nic_device(void);
+    QString localhostname;
+    void Get_Host_Name();
+    int nic_num = 0;
+    QString mynic_name[5];
+    QString mynic_ip[5];
+    QString mynic_description[5];
+    void Get_Nic_Info();
 
 signals:
 
 public slots:
 
-private:
-    pcap_if_t *alldevs;
-    pcap_if_t *d;
+
 };
 
 #endif // NIC_H

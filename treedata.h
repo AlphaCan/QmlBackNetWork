@@ -6,6 +6,7 @@
 
 class TreeData
 {
+
 public:
     explicit TreeData(const QList<QVariant> &data, TreeData *parentItem = 0);
 

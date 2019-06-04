@@ -1,31 +1,29 @@
 #include "treemodel.h"
-
+#include "nic.h"
 
 treemodel::treemodel(QObject *parent):QAbstractItemModel(parent)
 {
-//    QList<QVariant> root;
-//    root << "st" << "er" << "we";
-//    rootdata = new TreeData(root);
-//    setupModelData(rootdata);
-    rootdata = new TreeData({"A","B","C"});
-    auto item1 = new TreeData({"a","b","c"});
-    auto item2 = new TreeData( { "aa", "bb","cc" } );
-    auto item3 = new TreeData( { "aaa", "bbb","ccc" } );
 
+    NIC *nic_info = new NIC;
+    TreeData *item[5];
+    nic_info->Get_Host_Name();
+    nic_info->Get_Nic_Info();
+    rootdata = new TreeData({"Name","IP","Description"});
+    auto item1 = new TreeData({nic_info->localhostname});
     rootdata->appendChild(item1);
-    item1->appendChild(item2);
-    item2->appendChild(item3);
+    for (int8_t i = 0;i < nic_info->nic_num;i++) {
+        item[i] = new TreeData({nic_info->mynic_name[i],nic_info->mynic_ip[i],nic_info->mynic_description[i]});
+        item1->appendChild(item[i]);
+    }
+
+
+
 }
 
 treemodel::~treemodel(){
     delete rootdata;
 }
 
-//void treemodel::adddata(const treedata &data){
-//    beginInsertRows(QModelIndex(),rowCount(),rowCount());
-//    treeviewdata << data;
-//    endInsertRows();
-//}
 
 QModelIndex treemodel::index(int row, int column, const QModelIndex &parent) const{
     if (!hasIndex(row,column,parent)) {

@@ -48,7 +48,7 @@ HEADERS += \
     treemodel.h
 
 
-LIBS += ../QmlBackNetWork/npcap/Lib/x64/wpcap.lib
-LIBS += ../QmlBackNetWork/npcap/Lib/x64/Packet.lib
-INCLUDEPATH += ../QmlBackNetWork/npcap/include
+#LIBS += ../QmlBackNetWork/npcap/Lib/x64/wpcap.lib
+#LIBS += ../QmlBackNetWork/npcap/Lib/x64/Packet.lib
+#INCLUDEPATH += ../QmlBackNetWork/npcap/include
 QMAKE_LFLAGS += /MANIFESTUAC:\"level=\'requireAdministrator\' uiAccess=\'false\'\"

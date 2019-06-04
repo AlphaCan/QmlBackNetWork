@@ -5,6 +5,7 @@
 #include <QQuickStyle>
 #include <QIcon>
 #include "treemodel.h"
+//#include "nic.h"
 
 int main(int argc, char *argv[])
 {
@@ -28,10 +29,10 @@ int main(int argc, char *argv[])
 
 //    engine.rootContext()->setContextProperty("tabviewmodel",&model);
 
+//    qmlRegisterType<NIC>("nic_setup",1,0,"nic_info");
+
     treemodel model;
     engine.rootContext()->setContextProperty("mytreeview",&model);
-
-
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

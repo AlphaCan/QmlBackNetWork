@@ -247,20 +247,15 @@ ApplicationWindow {
                                       title: "Description"
                                       role: "description"
                                   }
-                                  Component.onCompleted: {
-                                      model = mytreeview
-                                  }
+                                  model:mytreeview
 
-//                                  model: mytreeview
+
                                   itemDelegate: Item {
                                       Text {
-                                          color: "red"
-                                          elide: styleData.elidemode
+                                          color: styleData.textColor
+                                          elide: styleData.elideMode
                                           text: styleData.value
                                       }
-                                  }
-                                  onClicked: {
-                                      emit:nic_treeview.expand(index)
                                   }
                               }
 

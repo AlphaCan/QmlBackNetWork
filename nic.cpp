@@ -6,12 +6,24 @@ NIC::NIC(QObject *parent) : QObject(parent)
 
 }
 
-//扫描网卡，返回扫描结果，返回 -1 表示未扫描到网卡 errbuf为错误信息
-int NIC::Find_nic_device(void){
-    char errbuf[PCAP_ERRBUF_SIZE];
-    return pcap_findalldevs(&alldevs,errbuf);
+
+void NIC::Get_Host_Name(){
+    localhostname = QHostInfo::localHostName();
 }
 
+
+void NIC::Get_Nic_Info(){
+    foreach(QNetworkInterface interface,QNetworkInterface::allInterfaces()){
+        QNetworkAddressEntry entry;
+        foreach(entry,interface.addressEntries());//循环赋值
+        if((!interface.flags().testFlag(QNetworkInterface::IsLoopBack))&&(interface.flags().testFlag(QNetworkInterface::IsRunning))){//过滤
+            mynic_name[nic_num] = interface.humanReadableName();
+            mynic_ip[nic_num] = entry.ip().toString();
+            mynic_description[nic_num] = interface.name();
+            nic_num++;
+        }
+    }
+}
 
 
 
